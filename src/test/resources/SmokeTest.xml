@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" name="smokeTest" parallel="tests">
+    <listeners>
+        <listener class-name="tests.Retry"/>
+        <listener class-name="tests.TestListener"/>
+    </listeners>
+    <test name="UI-CaseTest">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.ui.CaseTest"/>
+              </classes>
+    </test>
+        <test name="UI-ProjectTest">
+        <classes>
+            <class name="tests.api.ProjectTest"/>
+        </classes>
+
+    </test> <!-- Test API -->
+    <test name="API">
+        <classes>
+            <class name="tests.api.ProjectTest"/>
+        </classes>
+    </test> <!-- Test -->
+</suite>
+
