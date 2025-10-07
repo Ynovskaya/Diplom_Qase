@@ -7,56 +7,59 @@ import lombok.Data;
 
 import java.util.List;
 
+/**
+ * Запрос на создание тест-кейса (API).
+ * Используем @Expose чтобы управлять сериализацией Gson.
+ */
 @Data
 @Builder
-public class CreateCaseRq {
+public class CaseCreateRequest {
 
     @SerializedName("description")
     @Expose
-    private final String description;
+    private String description;
 
     @SerializedName("preconditions")
     @Expose
-    private final String preconditions;
+    private String preconditions;
 
     @SerializedName("postconditions")
     @Expose
-    private final String postconditions;
+    private String postconditions;
 
     @SerializedName("title")
     @Expose
-    private final String title;
+    private String title;
 
     @SerializedName("severity")
     @Expose
-    private final Integer severity;
+    private Integer severity;
 
     @SerializedName("priority")
     @Expose
-    private final Integer priority;
+    private Integer priority;
 
     @SerializedName("type")
     @Expose
-    private final Integer type;
+    private Integer type;
 
     @SerializedName("steps")
     @Expose
-    private final List<Step> steps;
+    private List<Step> steps;
 
     @Data
     @Builder
     public static class Step {
-
         @SerializedName("action")
         @Expose
-        private final String action;
+        private String action;
 
         @SerializedName("expected_result")
         @Expose
-        private final String expectedResult;
+        private String expectedResult;
 
         @SerializedName("data")
         @Expose
-        private final String data;
+        private String data;
     }
 }
