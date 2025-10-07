@@ -2,188 +2,185 @@ package models.project.get;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
 
+/**
+ * Ответ API при запросе списка проектов.
+ */
 @Data
-@Builder
-public class GetProjectsRs {
+public class ProjectsListResponse {
 
     @SerializedName("status")
     @Expose
-    public final Boolean status;
+    public Boolean status;
 
     @SerializedName("projects")
     @Expose
-    public final List<Project> projects;
+    public List<Project> projects;
 
     @SerializedName("total")
     @Expose
-    public final Integer total;
+    public Integer total;
 
     @Data
-    @Builder
     public static class Project {
         @SerializedName("code")
         @Expose
-        public final String code;
+        public String code;
 
         @SerializedName("title")
         @Expose
-        public final String title;
+        public String title;
 
         @SerializedName("description")
         @Expose
-        public final String description;
+        public String description;
 
         @SerializedName("is_available")
         @Expose
-        public final Boolean isAvailable;
+        public Boolean isAvailable;
 
         @SerializedName("is_archived")
         @Expose
-        public final Boolean isArchived;
+        public Boolean isArchived;
 
         @SerializedName("is_private")
         @Expose
-        public final Boolean isPrivate;
+        public Boolean isPrivate;
 
         @SerializedName("avatar_url")
         @Expose
-        public final String avatarUrl;
+        public String avatarUrl;
 
         @SerializedName("case_count")
         @Expose
-        public final Integer caseCount;
+        public Integer caseCount;
 
         @SerializedName("suite_count")
         @Expose
-        public final Integer suiteCount;
+        public Integer suiteCount;
 
         @SerializedName("milestone_count")
         @Expose
-        public final Integer milestoneCount;
+        public Integer milestoneCount;
 
         @SerializedName("run_total")
         @Expose
-        public final Integer runTotal;
+        public Integer runTotal;
 
         @SerializedName("run_active")
         @Expose
-        public final Integer runActive;
+        public Integer runActive;
 
         @SerializedName("defect_total")
         @Expose
-        public final Integer defectTotal;
+        public Integer defectTotal;
 
         @SerializedName("defect_unresolved")
         @Expose
-        public final Integer defectUnresolved;
+        public Integer defectUnresolved;
 
         @SerializedName("is_creator")
         @Expose
-        public final Boolean isCreator;
+        public Boolean isCreator;
 
         @SerializedName("members")
         @Expose
-        public final List<Member> members;
+        public List<Member> members;
 
         @SerializedName("favorite")
         @Expose
-        public final Boolean favorite;
+        public Boolean favorite;
     }
 
     @Data
-    @Builder
     public static class Member {
         @SerializedName("internal_id")
         @Expose
-        public final Integer internalId;
+        public Integer internalId;
 
         @SerializedName("name")
         @Expose
-        public final String name;
+        public String name;
 
         @SerializedName("role_title")
         @Expose
-        public final String roleTitle;
+        public String roleTitle;
 
         @SerializedName("user")
         @Expose
-        public final User user;
+        public User user;
 
         @SerializedName("role")
         @Expose
-        public final Role role;
+        public Role role;
 
         @SerializedName("type")
         @Expose
-        public final Integer type;
+        public Integer type;
 
         @SerializedName("status")
         @Expose
-        public final Integer status;
+        public Integer status;
     }
 
     @Data
-    @Builder
     public static class Role {
         @SerializedName("internal_id")
         @Expose
-        public final Integer internalId;
+        public Integer internalId;
 
         @SerializedName("title")
         @Expose
-        public final String title;
+        public String title;
 
         @SerializedName("description")
         @Expose
-        public final String description;
+        public String description;
 
         @SerializedName("is_default")
         @Expose
-        public final Boolean isDefault;
+        public Boolean isDefault;
 
         @SerializedName("is_owner")
         @Expose
-        public final Boolean isOwner;
+        public Boolean isOwner;
     }
 
     @Data
-    @Builder
     public static class User {
         @SerializedName("name")
         @Expose
-        public final String name;
+        public String name;
 
         @SerializedName("firstName")
         @Expose
-        public final String firstName;
+        public String firstName;
 
         @SerializedName("lastName")
         @Expose
-        public final String lastName;
+        public String lastName;
 
         @SerializedName("email")
         @Expose
-        public final String email;
+        public String email;
 
         @SerializedName("avatar_url")
         @Expose
-        public final String avatarUrl;
+        public String avatarUrl;
 
         @SerializedName("is_online")
         @Expose
-        public final Boolean isOnline;
+        public Boolean isOnline;
 
         @SerializedName("last_action")
         @Expose
-        public final String lastAction;
+        public String lastAction;
 
         @SerializedName("is_active")
         @Expose
-        public final Boolean isActive;
+        public Boolean isActive;
     }
 }

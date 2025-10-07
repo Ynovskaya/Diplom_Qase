@@ -5,26 +5,29 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Builder;
 import lombok.Data;
 
+/**
+ * Тело запроса для создания проекта.
+ */
 @Data
 @Builder
-public class CreateProjectRq {
+public class ProjectCreateRequest {
     @SerializedName("title")
     @Expose
-    private final String title;
+    private String title;
 
     @SerializedName("code")
     @Expose
-    private final String code;
+    private String code;
 
     @SerializedName("description")
     @Expose
-    private final String description;
+    private String description;
 
     @SerializedName("access")
     @Expose
-    private final String access;
+    private String access;
 
     @SerializedName("group")
     @Expose
-    private final String group;
+    private String group;
 }

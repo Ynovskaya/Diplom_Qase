@@ -2,83 +2,81 @@ package models.project.get;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import lombok.Builder;
 import lombok.Data;
 
+/**
+ * Ответ API на получение информации о проекте.
+ * Включает вложенные структуры для счётчиков и статистики.
+ */
 @Data
-@Builder
-public class GetProjectRs {
+public class ProjectDetailsResponse {
 
     @SerializedName("status")
     @Expose
-    private final Boolean status;
+    private Boolean status;
 
     @SerializedName("result")
     @Expose
-    private final Result result;
+    private Result result;
 
     // ---------- Nested ----------
     @Data
-    @Builder
     public static class Result {
         @SerializedName("title")
         @Expose
-        private final String title;
+        private String title;
 
         @SerializedName("code")
         @Expose
-        private final String code;
+        private String code;
 
         @SerializedName("counts")
         @Expose
-        private final Counts counts;
+        private Counts counts;
     }
 
     @Data
-    @Builder
     public static class Counts {
         @SerializedName("cases")
         @Expose
-        private final Integer cases;
+        private Integer cases;
 
         @SerializedName("suites")
         @Expose
-        private final Integer suites;
+        private Integer suites;
 
         @SerializedName("milestones")
         @Expose
-        private final Integer milestones;
+        private Integer milestones;
 
         @SerializedName("runs")
         @Expose
-        private final Runs runs;
+        private Runs runs;
 
         @SerializedName("defects")
         @Expose
-        private final Defects defects;
+        private Defects defects;
     }
 
     @Data
-    @Builder
     public static class Runs {
         @SerializedName("total")
         @Expose
-        private final Integer total;
+        private Integer total;
 
         @SerializedName("active")
         @Expose
-        private final Integer active;
+        private Integer active;
     }
 
     @Data
-    @Builder
     public static class Defects {
         @SerializedName("total")
         @Expose
-        private final Integer total;
+        private Integer total;
 
         @SerializedName("open")
         @Expose
-        private final Integer open;
+        private Integer open;
     }
 }

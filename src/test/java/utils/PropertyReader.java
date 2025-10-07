@@ -4,38 +4,55 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+/**
+ * Утиль для чтения config.properties.
+ * Ленивое чтение и возможность подгрузить дополнительный файл.
+ */
 public final class PropertyReader {
 
-    private static final String propertiesPath = "/config.properties";
-    private static volatile Properties properties;
+    private static String propertiesPath = "/config.properties";
+    private static volatile Properties props;
+    private static InputStream stream;
 
-    private PropertyReader() {}
+    private PropertyReader() {
+    }
 
-    private static Properties load() {
-        if (properties == null) {
-            synchronized (PropertyReader.class) {
-                if (properties == null) {
-                    Properties p = new Properties();
-                    try (InputStream is = PropertyReader.class.getResourceAsStream(propertiesPath)) {
-                        if (is != null) p.load(is);
-                    } catch (IOException ignored) { }
-                    properties = p;
+    private static String normalizePath() {
+        if (propertiesPath.charAt(0) != '/') propertiesPath = "/" + propertiesPath;
+        return propertiesPath;
+    }
+
+    public static Properties readAll() {
+        props = new Properties();
+        try {
+            stream = PropertyReader.class.getResourceAsStream(normalizePath());
+            if (stream != null) props.load(stream);
+        } catch (Exception ex) {
+            if (stream != null) {
+                try {
+                    stream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
         }
-        return properties;
+        if (props.getProperty("config_file") != null) {
+            Properties extra = getProperties(props.getProperty("config_file"));
+            props.putAll(extra);
+        }
+        return props;
     }
 
-    public static String getProperty(String name) {
-        String sys = System.getProperty(name);
-        if (sys != null && !sys.isBlank()) return sys;
-        String env = System.getenv(name.toUpperCase());
-        if (env != null && !env.isBlank()) return env;
-        return load().getProperty(name);
+    private static Properties ensureLoaded() {
+        return props != null ? props : readAll();
     }
 
-    public static String getProperty(String name, String defaultValue) {
-        String val = getProperty(name);
-        return val == null ? defaultValue : val;
+    public static Properties getProperties(String path) {
+        propertiesPath = path;
+        return readAll();
+    }
+
+    public static String getProperty(String key) {
+        return ensureLoaded().getProperty(key);
     }
 }

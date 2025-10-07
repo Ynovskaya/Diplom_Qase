@@ -7,28 +7,30 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static data.Elements.NEW_TEST_BTN;
+import static data.UiElements.BUTTON_NEW_TEST;
 
-
+/**
+ * Страница проекта (репозиторий проекта).
+ */
 public class ProjectPage extends BasePage {
-    private static final String TEST_CASE_XPATH = "//*[text()='%s']//ancestor::*[@data-suite-body-id]/ancestor::*[@class][1]/following-sibling::*[1]//*[text()='%s']";
-    private static final String PROJECT_URL = "/project";
+    private static final String TEST_XPATH_TEMPLATE = "//*[text()='%s']//ancestor::*[@data-suite-body-id]/ancestor::*[@class][1]/following-sibling::*[1]//*[text()='%s']";
+    private static final String PROJECT_PATH = "/project";
 
-    @Step("Проверка отображения созданного проекта")
-    public ProjectPage checkCreatingProject(String project) {//проверка что после создания провекта отображена кнопка new test
-        NEW_TEST_BTN.shouldBe(visible, Duration.ofSeconds(60));
-        $(byText(project)).shouldBe(visible);//имя проекта отображено
+    @Step("Check created project visible")
+    public ProjectPage assertProjectVisible(String name) {
+        BUTTON_NEW_TEST.shouldBe(visible, Duration.ofSeconds(60));
+        $(byText(name)).shouldBe(visible);
         return this;
     }
 
-    @Step("Oткрыт репозиторий проекта")
-    public ProjectPage openRepository(String project) {
-        open(PROJECT_URL + "/" + project);
-        NEW_TEST_BTN.shouldBe(visible, Duration.ofSeconds(60));
+    @Step("Open project repository")
+    public ProjectPage openRepository(String name) {
+        open(PROJECT_PATH + "/" + name);
+        BUTTON_NEW_TEST.shouldBe(visible, Duration.ofSeconds(60));
         return this;
     }
 
-    public boolean doesTestCaseBelongToSuite(String suiteTitle, String testCaseTitle) {
-        return $x(String.format(TEST_CASE_XPATH, suiteTitle, testCaseTitle)).exists();
+    public boolean doesCaseBelongToSuite(String suite, String caseName) {
+        return $x(String.format(TEST_XPATH_TEMPLATE, suite, caseName)).exists();
     }
 }
