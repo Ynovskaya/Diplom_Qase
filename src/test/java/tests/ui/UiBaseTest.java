@@ -45,8 +45,10 @@ public class UiBaseTest {
         log.info("Launching browser: {}", browser);
         if ("chrome".equalsIgnoreCase(browser)) {
             Configuration.browser = "chrome";
+            Configuration.headless = true;
         } else if ("firefox".equalsIgnoreCase(browser)) {
             Configuration.browser = "firefox";
+            Configuration.headless = true;
         } else {
             throw new IllegalArgumentException("Unknown browser: " + browser);
         }
@@ -54,7 +56,6 @@ public class UiBaseTest {
         Configuration.baseUrl = "https://app.qase.io";
         Configuration.timeout = 5000;
         Configuration.clickViaJs = true;
-        Configuration.headless = true;
         Configuration.browserSize = "1920x1080";
 
         SelenideLogger.addListener("AllureSelenide",
