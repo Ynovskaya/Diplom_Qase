@@ -1,8 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","1223","verifyProjectFieldsAfterCreate","Surefire suite","Fri Oct 31 18:29:46 UTC 2025","passed","Fri Oct 31 18:29:48 UTC 2025","tests.api.ProjectApiTest","Surefire test","tests.api.ProjectApiTest","verifyProjectFieldsAfterCreate"
-"","1240","addCaseToProject","Surefire suite","Fri Oct 31 18:29:42 UTC 2025","passed","Fri Oct 31 18:29:44 UTC 2025","tests.api.CaseApiTest","Surefire test","tests.api.CaseApiTest","addCaseToProject"
-"Create and remove project","8687","createAndRemoveProject","Surefire suite","Fri Oct 31 18:31:31 UTC 2025","passed","Fri Oct 31 18:31:39 UTC 2025","tests.ui.ProjectUiTest","Surefire test","tests.ui.ProjectUiTest","createAndRemoveProject"
-"","931","createAndRemoveProject","Surefire suite","Fri Oct 31 18:29:44 UTC 2025","passed","Fri Oct 31 18:29:45 UTC 2025","tests.api.ProjectApiTest","Surefire test","tests.api.ProjectApiTest","createAndRemoveProject"
-"Create test case in UI","12215","createCaseUi","Surefire suite","Fri Oct 31 18:31:45 UTC 2025","failed","Fri Oct 31 18:31:57 UTC 2025","tests.ui.CaseUiTest","Surefire test","tests.ui.CaseUiTest","createCaseUi"
-"Validation when creating project without name","4969","createProjectValidation","Surefire suite","Fri Oct 31 18:31:40 UTC 2025","passed","Fri Oct 31 18:31:45 UTC 2025","tests.ui.ProjectUiTest","Surefire test","tests.ui.ProjectUiTest","createProjectValidation"
-"","532","createProjectMissingTitle","Surefire suite","Fri Oct 31 18:29:46 UTC 2025","passed","Fri Oct 31 18:29:46 UTC 2025","tests.api.ProjectApiTest","Surefire test","tests.api.ProjectApiTest","createProjectMissingTitle"
