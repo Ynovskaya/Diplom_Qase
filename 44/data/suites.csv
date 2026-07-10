@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"Validation when creating project without name","4765","createProjectValidation","Surefire suite","2026-07-10","passed","2026-07-10","tests.ui.ProjectUiTest","Surefire test","tests.ui.ProjectUiTest","createProjectValidation"
+"","356","createProjectMissingTitle","Surefire suite","2026-07-10","passed","2026-07-10","tests.api.ProjectApiTest","Surefire test","tests.api.ProjectApiTest","createProjectMissingTitle"
+"Create test case in UI","65083","createCaseUi","Surefire suite","2026-07-10","failed","2026-07-10","tests.ui.CaseUiTest","Surefire test","tests.ui.CaseUiTest","createCaseUi"
+"","912","addCaseToProject","Surefire suite","2026-07-10","passed","2026-07-10","tests.api.CaseApiTest","Surefire test","tests.api.CaseApiTest","addCaseToProject"
+"Create and remove project","67600","createAndRemoveProject","Surefire suite","2026-07-10","failed","2026-07-10","tests.ui.ProjectUiTest","Surefire test","tests.ui.ProjectUiTest","createAndRemoveProject"
+"","480","createAndRemoveProject","Surefire suite","2026-07-10","passed","2026-07-10","tests.api.ProjectApiTest","Surefire test","tests.api.ProjectApiTest","createAndRemoveProject"
+"","520","verifyProjectFieldsAfterCreate","Surefire suite","2026-07-10","passed","2026-07-10","tests.api.ProjectApiTest","Surefire test","tests.api.ProjectApiTest","verifyProjectFieldsAfterCreate"
